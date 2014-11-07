@@ -1,0 +1,26 @@
+Client connected 	-> Wenn Vaild -> Weiterleitung
+					-> Wenn Invaild -> disconnect
+
+	
+Client ID in: Ao.atm?!, Registry, Appdata
+Wenn Clientid falsch (1==2==3) -> Error
+
+Client send clientid-> Server checkt ID
+						-> Wenn vaild ->	Send OK zu Client
+						-> Wenn invalid->	Send ID banned, disconnect
+						-> Error->			Send Error
+						
+Client request Launcher version -> Send version
+
+Client disconnect
+
+Überlegungen: Filesize (Hackshield, Aceonline.atm)
+
+DB Struct:
+td_Auth
+->ClientID
+->LastLoginIP
+->LastLoginTime
+
+td_BannedCLient
+->ClientID
