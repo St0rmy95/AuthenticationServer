@@ -29,11 +29,21 @@ namespace AuthServer
         private static List<Connection> m_lConnections;
         private static List<string> m_lsConnections;
 
+        /// <summary>
+        /// Sends a packet, via the specific connection 
+        /// </summary>
+        /// <param name="con">Connection</param>
+        /// <param name="value">Packet as string</param>
         void Send(Connection con, int packet)
         {
             Send(con, packet.ToString());
         }
 
+        /// <summary>
+        /// Sends a packet, via the specific connection 
+        /// </summary>
+        /// <param name="con">Connection</param>
+        /// <param name="value">Packet as string</param>
         void Send(Connection con, string value)
         {
             con.Streamwriter.WriteLine(Crypto.Encrypt(value, PACKET_KEY));

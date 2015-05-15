@@ -65,7 +65,7 @@ namespace AuthServer
 #else
 			ConsoleWriteLine("############################ Combat-Rivals AuthenticationServer #################################");
             this.Text = "AuthenticationServer (Release x86)";
-            DebugMode = false;
+            m_bDebugMode = false;
 #endif
 			ConsoleWriteLine("Using Logfile \"" + m_sFilepath + "\"");
             ConsoleWriteLine("Reading Configuration...");
