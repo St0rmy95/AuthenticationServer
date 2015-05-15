@@ -61,5 +61,6 @@ namespace AuthenticationServer.Database
             queryCommandReader.Close();
             return RowCount;
         }
+
     }
 }

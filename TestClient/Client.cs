@@ -16,6 +16,8 @@ namespace Client
         static string adress = "127.0.0.1";
         static int port = 1234;
 
+        static string PACKET_KEY = "Yu2T6ag8xoE4Xj4mIfR5fNIpmqX11TLt";
+
         static void Main(string[] args)
         {
             string text = "";
@@ -78,7 +80,7 @@ namespace Client
                 var streamw = new StreamWriter(stream);
                 for (int i = 0; i < 1; i++)
                 {
-                    streamw.WriteLine(packet);
+                    streamw.WriteLine(Crypto.Encrypt(packet,PACKET_KEY));
                     streamw.Flush();
                 }
             }
@@ -102,17 +104,17 @@ namespace Client
         {
             try
             {
-                string lol;
+                string packet;
                 var stream = client.GetStream();
                 var streamr = new StreamReader(stream);
                 while (true)
                 {
                     using (streamr)
                     {
-                        while ((lol = streamr.ReadLine().ToString()) != null)
+                        while ((packet = streamr.ReadLine().ToString()) != null)
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
-                            Console.WriteLine("Incoming packet: " +  lol);
+                            Console.WriteLine("Incoming packet: " + Crypto.Decrypt(packet, PACKET_KEY));
                             Console.ForegroundColor = ConsoleColor.Gray;
                         }
                     }

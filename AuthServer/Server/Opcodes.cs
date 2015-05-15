@@ -27,7 +27,9 @@ namespace AuthenticationServer.Protocol
         T_AC_REQUEST_CLIENT_ID              =   0x011,
         T_AC_REQUEST_LAUNCHER_VERSION       =   0x012,
         T_AC_REQUEST_LAUNCHER_UPDATE_DATA   =   0x013,
-        T_AC_REQUEST_SERVER_DATA            =   0x014
+        T_AC_REQUEST_SERVER_DATA            =   0x014,
+
+        T_INVALID_PROTOCOL                  =   0xFFF
 
     }
 
@@ -67,6 +69,8 @@ namespace AuthenticationServer.Protocol
                     return "T_AC_REQUEST_LAUNCHER_UPDATE_DATA";
                 case (int)Opcodes.T_AC_REQUEST_SERVER_DATA:
                     return "T_AC_REQUEST_SERVER_DATA";
+                case (int)Opcodes.T_INVALID_PROTOCOL:
+                    return "T_INVALID_PROTOCOL";
                 default:
                     return "UNKNOWN_PACKET_TYPE";
             }
